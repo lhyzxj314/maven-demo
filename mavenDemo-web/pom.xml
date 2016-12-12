@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.test.app</groupId>
+    <artifactId>mavenDemo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>mavenDemo-web</artifactId>
+  <packaging>war</packaging>
+  
+  <name>${project.artifactId}</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+  	<!-- MVC依赖  -->
+  	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-webmvc</artifactId>
+    </dependency>
+    <!-- Json依赖 -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+	</dependency>
+    <!-- 兄弟Module依赖  -->
+    <dependency>
+    	<groupId>com.test.app</groupId>
+    	<artifactId>mavenDemo-service</artifactId>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+    	<plugin>
+    	   <groupId>org.mortbay.jetty</groupId>
+	       <artifactId>maven-jetty-plugin</artifactId>
+	       <version>6.1.26</version>
+           <configuration>
+           		<webAppConfig>
+           			<contextPath>/</contextPath>
+           		</webAppConfig>
+           		<scanIntervalSeconds>10</scanIntervalSeconds>
+           		<reload>manual</reload>
+           		<connectors>
+           			<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+           				<port>8081</port>
+           				<headerBufferSize>28192</headerBufferSize>
+           				<maxIdleTime>60000000</maxIdleTime>
+           			</connector>
+           		</connectors>
+           </configuration>
+    	</plugin>
+    	<plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-compiler-plugin</artifactId>
+           <version>2.3.2</version>
+           <configuration>
+               <source>1.6</source>
+               <target>1.6</target>
+           </configuration>
+        </plugin>
+    </plugins>
+  </build>
+</project>

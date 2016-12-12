@@ -1,0 +1,20 @@
+*.class
+
+#packge files
+*.jar
+*.war
+*.ear
+
+#logs
+/logs
+*.log
+*.log.*
+
+#maven generated target folders
+target/
+
+#eclipse files
+.project
+.classpath
+.settings
+.metadata
