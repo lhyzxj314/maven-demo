@@ -1,9 +1,17 @@
 package com.test.demo.service;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
+
+import com.test.demo.dao.impl.UserDaoImpl;
 
 @Service
 public class DemoService {
+  
+  @Resource
+  private UserDaoImpl dao;
+  
   public String getName(Long id) {
     if (id == null)
       return null;
