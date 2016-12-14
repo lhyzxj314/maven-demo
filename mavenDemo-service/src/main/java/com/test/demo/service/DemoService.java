@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.test.demo.dao.impl.UserDaoImpl;
+import com.test.demo.domain.User;
 
 @Service
 public class DemoService {
@@ -16,6 +17,7 @@ public class DemoService {
     if (id == null)
       return null;
     String welcom = "肖俊";
+    dao.insert(new User());
     if (id != null && id != 1) 
       return "请输入id=1";
     else
