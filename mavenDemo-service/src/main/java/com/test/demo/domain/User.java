@@ -1,14 +1,14 @@
 package com.test.demo.domain;
 
 public class User {
-	int id;
+	long id;
 	String name;
 	String address;
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -24,4 +24,9 @@ public class User {
 		this.address = address;
 	}
 	
+	
+	public String toString() {
+		String str = id+ "," + name + "," + address;
+		return str;
+	}
 }

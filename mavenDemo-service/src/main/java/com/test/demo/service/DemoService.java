@@ -17,10 +17,14 @@ public class DemoService {
     if (id == null)
       return null;
     String welcom = "肖俊";
-    dao.insert(new User());
     if (id != null && id != 1) 
       return "请输入id=1";
     else
       return "欢迎你," + welcom;
+  }
+  
+  public void addUser(User user) {
+	  if (user == null)  return;
+	  dao.insert(user);
   }
 }

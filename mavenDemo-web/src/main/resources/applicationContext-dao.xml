@@ -14,4 +14,12 @@
 	    <property name="username" value="root"></property>
 	    <property name="password" value="123456"></property>
 	</bean>
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+	</bean>
+	 <bean id="userDao" class="com.test.demo.dao.impl.UserDaoImpl">
+	    <property name="dataSource" ref="dataSource"></property>
+	</bean>-->
 </beans>

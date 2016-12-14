@@ -1,5 +1,9 @@
 package com.test.demo.dao.impl;
 
+import javax.annotation.Resource;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -9,12 +13,14 @@ import com.test.demo.domain.User;
 
 @Repository
 public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
-	//private DataSource dataSource;
-	//private JdbcTemplate jdbcTemplate;
 
+	@Autowired
+	public UserDaoImpl(DataSource dataSource) {
+		setDataSource(dataSource);
+	}
+	
 	public void insert(User user) {
 		//jdbcTemplate = new JdbcTemplate(dataSource);
-		
 		String sql = "INSERT INTO USER VALUES (?,?,?)";
 		
 		JdbcTemplate jdbcTemplate = getJdbcTemplate();
@@ -26,7 +32,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 		return null;
 	}
 
-
+	
 	/*public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}*/
