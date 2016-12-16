@@ -4,6 +4,7 @@ public class User {
 	long id;
 	String name;
 	String address;
+	double money;
 	
 	public long getId() {
 		return id;
@@ -23,8 +24,12 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
+	public double getMoney() {
+		return money;
+	}
+	public void setMoney(double money) {
+		this.money = money;
+	}
 	public String toString() {
 		String str = id+ "," + name + "," + address;
 		return str;

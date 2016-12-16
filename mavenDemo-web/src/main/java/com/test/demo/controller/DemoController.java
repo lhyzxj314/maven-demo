@@ -34,11 +34,22 @@ public class DemoController {
 		return result;
 	}
 	
-	@RequestMapping(value="/test.json", method={RequestMethod.POST})
-	public @ResponseBody ResponseView echoHello1(@RequestBody User user){
+	@RequestMapping(value="/add.json", method={RequestMethod.POST})
+	public @ResponseBody ResponseView addUser(@RequestBody User user){
 		log.info("add user:" + user);
 		ResponseView result = new ResponseView();
 		demoService.addUser(user);
+		result.setBody("Success");
+		return result;
+	}
+	
+	@RequestMapping(value="/exchange.json", method={RequestMethod.GET})
+	public @ResponseBody ResponseView handleExchangeReq(@RequestParam(value="srcid", required=false) Long userSrcId,
+												 @RequestParam(value="destid", required=false) Long userDestId,
+												 @RequestParam(value="money", required=false) Double money){
+		log.info("exchange money:" + userSrcId + " to " + userDestId + ",sum=" + money);
+		ResponseView result = new ResponseView();
+		demoService.exchangeMoney(userSrcId, userDestId, money);
 		result.setBody("Success");
 		return result;
 	}
